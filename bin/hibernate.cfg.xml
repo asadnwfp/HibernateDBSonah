@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sonah_hibernate</property> 
+		<property name="hibernate.connection.username">saad</property>
+		<property name="hibernate.connection.password">rwth4ever</property>
+		
+	<!--
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sonah_hibernate</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">letmein</property>
+		<property name="hibernate.connection.url">jdbc:mysql://info5-api.dyndns.sonah.xyz:3306/sonah</property>
+		
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sonah</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">letmein</property> 
+		
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sonah</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">letmein</property> 
+		
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sonah_hibernate</property> 
+		<property name="hibernate.connection.username">saad</property>
+		<property name="hibernate.connection.password">rwth4ever</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sonah2?nullNamePatternMatchesAll=true</property> -->
+		
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+		<!-- JDBC Connection Pool Size -->
+		<property name="connection.pool_size">10</property>
+		<!-- Show Sql -->
+		<property name="show_sql">true</property>
+		<!-- Mappings -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		
+		<mapping class="com.sonah.models.ParkingLocation" />
+		<mapping class="com.sonah.models.Spot" />
+		<mapping class="com.sonah.models.Counter" />
+	</session-factory>
+</hibernate-configuration>
