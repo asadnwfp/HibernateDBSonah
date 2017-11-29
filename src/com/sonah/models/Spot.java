@@ -28,11 +28,12 @@ public class Spot implements Serializable{
 	private double width;
 	private int orientation;
 	private boolean state;
+	private int level;
 	
 	public Spot(){}
 
 	public Spot(int id, ParkingLocation parkinglocation,  Coordinate gps, double length, double width,
-			int orientation, boolean state) {
+			int orientation, boolean state, int level) {
 		this.id = id;
 		this.parkinglocation = parkinglocation;
 		this.gps = gps;
@@ -40,15 +41,17 @@ public class Spot implements Serializable{
 		this.width = width;
 		this.orientation = orientation;
 		this.state = state;
+		this.level = level;
 	}
 
-	public Spot( Coordinate gps, double length, double width, int orientation, boolean state) {
+	public Spot( Coordinate gps, double length, double width, int orientation, boolean state, int level) {
 
 		this.gps = gps;
 		this.length = length;
 		this.width = width;
 		this.orientation = orientation;
 		this.state = state;
+		this.level = level;
 	}
 
 	public int getId() {
@@ -106,6 +109,14 @@ public class Spot implements Serializable{
 
 	public void setState(boolean state) {
 		this.state = state;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 
 	@Override

@@ -49,21 +49,23 @@ public class ParkingLocation implements Serializable {
 	@OneToMany(mappedBy = "parkinglocation", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Counter> counters = new ArrayList<>();
+	private boolean multiLevel;
 
 	public ParkingLocation() {
 	}
 
-	public ParkingLocation(int id, String name, Coordinate gps, int total, int free) {
-		this(id, name, gps, total, free, new ArrayList<>());
+	public ParkingLocation(int id, String name, Coordinate gps, int total, int free , boolean multiLevel) {
+		this(id, name, gps, total, free, new ArrayList<>(), multiLevel);
 	}
 
-	public ParkingLocation(int id, String name, Coordinate gps, int total, int free, List<?> type) {
+	public ParkingLocation(int id, String name, Coordinate gps, int total, int free, List<?> type ,boolean multiLevel) {
 
 		this.id = id;
 		this.gps = gps;
 		this.name = name;
 		this.totalParking = total;
 		this.availableParking = free;
+		this.multiLevel = multiLevel;
 		if (!type.isEmpty() && type.get(0) instanceof Counter) {
 			this.counters = (List<Counter>) type;
 			this.spots = null;
@@ -133,5 +135,15 @@ public class ParkingLocation implements Serializable {
 	public void setCounters(List<Counter> counters) {
 		this.counters = counters;
 	}
+
+	public boolean isMultiLevel() {
+		return multiLevel;
+	}
+
+	public void setMultiLevel(boolean multiLevel) {
+		this.multiLevel = multiLevel;
+	}
+	
+	
 
 }
