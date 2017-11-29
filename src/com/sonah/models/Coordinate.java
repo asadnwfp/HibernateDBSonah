@@ -1,5 +1,6 @@
 package com.sonah.models;
 
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -99,10 +100,12 @@ public class Coordinate {
 		this.distanceFromCenter = distanceFromCenter;
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "Coordinate [coordinate_x=" + coordinate_x + ", coordinate_y=" + coordinate_y + ", zoomLevel="
-				+ zoomLevel + "]";
+				+ zoomLevel + ", degree=" + degree + ", distanceFromCenter=" + distanceFromCenter + "]\n";
 	}
 
 	/**
