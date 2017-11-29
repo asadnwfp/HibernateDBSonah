@@ -28,27 +28,32 @@ public class Counter implements Serializable{
 	private int orientation;
 	private int availableParking;
 	private int totalParking;
+	private int level;
 	
 	public Counter(){}
 	
-	public Counter( ParkingLocation parkinglocation,  Coordinate gps, double length, double width,
-			int orientation, int available, int total) {
-		this.gps = gps;
-		this.length = length;
-		this.width = width;
-		this.orientation = orientation;
-		this.availableParking = available;
-		this.totalParking = total;
-	}
+	 public Counter( ParkingLocation parkinglocation, Coordinate gps, double
+	 length, double width,
+	 int orientation, int available, int total, int level) {
+//	 this.parkinglocation = parkinglocation;
+	 this.gps = gps;
+	 this.length = length;
+	 this.width = width;
+	 this.orientation = orientation;
+	 this.availableParking = available;
+	 this.totalParking = total;
+	 this.level = level;
+	 }
 	
 	public Counter( Coordinate gps, double length, double width,
-			int orientation, int available, int total) {
+			int orientation, int available, int total, int level) {
 		this.gps = gps;
 		this.length = length;
 		this.width = width;
 		this.orientation = orientation;
 		this.availableParking = available;
 		this.totalParking = total;
+		this.level = level;
 	}
 
 	public int getId() {
@@ -114,6 +119,31 @@ public class Counter implements Serializable{
 	public void setTotal(int total) {
 		this.totalParking = total;
 	}
+
+	public int getAvailableParking() {
+		return availableParking;
+	}
+
+	public void setAvailableParking(int availableParking) {
+		this.availableParking = availableParking;
+	}
+
+	public int getTotalParking() {
+		return totalParking;
+	}
+
+	public void setTotalParking(int totalParking) {
+		this.totalParking = totalParking;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
 	
 	
 }
