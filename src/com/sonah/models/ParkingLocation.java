@@ -34,7 +34,6 @@ import org.hibernate.annotations.LazyCollectionOption;
 @Entity
 public class ParkingLocation implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@Embedded
 	private Coordinate gps;

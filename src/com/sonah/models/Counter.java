@@ -2,7 +2,9 @@ package com.sonah.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,38 +17,44 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @Entity
 @Embeddable
-public class Counter implements Serializable{
+public class Counter implements Serializable {
 
-	@Id @GeneratedValue
+	@Id
 	private int id;
 	@ManyToOne
-	@JoinColumn(name="id_parkingLocation")
+	@JoinColumn(name = "id_parkingLocation")
 	private ParkingLocation parkinglocation;
+	@Embedded
 	private Coordinate gps;
 	private double length;
 	private double width;
 	private int orientation;
+	@Column(name = "available")
 	private int availableParking;
+	@Column(name = "total")
 	private int totalParking;
 	private int level;
-	
-	public Counter(){}
-	
-	 public Counter( ParkingLocation parkinglocation, Coordinate gps, double
-	 length, double width,
-	 int orientation, int available, int total, int level) {
-//	 this.parkinglocation = parkinglocation;
-	 this.gps = gps;
-	 this.length = length;
-	 this.width = width;
-	 this.orientation = orientation;
-	 this.availableParking = available;
-	 this.totalParking = total;
-	 this.level = level;
-	 }
-	
-	public Counter( Coordinate gps, double length, double width,
+
+	public Counter() {
+	}
+
+	public Counter(int id, ParkingLocation parkinglocation, Coordinate gps, double length, double width,
 			int orientation, int available, int total, int level) {
+		// this.parkinglocation = parkinglocation;
+		this.id = id;
+		this.gps = gps;
+		this.length = length;
+		this.width = width;
+		this.orientation = orientation;
+		this.availableParking = available;
+		this.totalParking = total;
+		this.level = level;
+	}
+
+	public Counter(int id, Coordinate gps, double length, double width, int orientation, int available, int total,
+			int level) {
+
+		this.id = id;
 		this.gps = gps;
 		this.length = length;
 		this.width = width;
@@ -143,7 +151,5 @@ public class Counter implements Serializable{
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	
-	
-	
+
 }

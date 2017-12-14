@@ -2,6 +2,7 @@ package com.sonah.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Spot implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@ManyToOne
 	@JoinColumn(name="id_parkingLocation")
@@ -44,8 +44,8 @@ public class Spot implements Serializable{
 		this.level = level;
 	}
 
-	public Spot( Coordinate gps, double length, double width, int orientation, boolean state, int level) {
-
+	public Spot( int id, Coordinate gps, double length, double width, int orientation, boolean state, int level) {
+		this.id = id;
 		this.gps = gps;
 		this.length = length;
 		this.width = width;

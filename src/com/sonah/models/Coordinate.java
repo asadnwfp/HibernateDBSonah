@@ -3,6 +3,7 @@ package com.sonah.models;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -19,8 +20,11 @@ public class Coordinate {
 	private String coordinate_x;
 	@Column(name = "longitude")
 	private String coordinate_y;
+	@Transient
 	private int zoomLevel;
+	@Transient
 	private int degree;
+	@Transient
 	private int distanceFromCenter;
 
 	public Coordinate() {
