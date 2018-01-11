@@ -20,7 +20,6 @@ public class Coordinate {
 	private String coordinate_x;
 	@Column(name = "longitude")
 	private String coordinate_y;
-	@Transient
 	private int zoomLevel;
 	@Transient
 	private int degree;

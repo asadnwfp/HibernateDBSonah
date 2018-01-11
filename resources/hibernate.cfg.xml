@@ -3,12 +3,18 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://info5-db.dyndns.sonah.xyz/sonah</property> 
+		<property name="hibernate.connection.url">jdbc:mysql://info5-db.dyndns.sonah.xyz/sonah_servers</property> 
 		<property name="hibernate.connection.username">saad</property>
 		<property name="hibernate.connection.password">rwth4ever</property>
 		
 		
 	<!--
+	
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://info5-db.dyndns.sonah.xyz/sonah_servers</property> 
+		<property name="hibernate.connection.username">saad</property>
+		<property name="hibernate.connection.password">rwth4ever</property>
+		
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sonah_hibernate</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">letmein</property>
@@ -43,8 +49,10 @@
 		<!-- Mappings -->
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		
-		<mapping class="com.sonah.models.ParkingLocation" />
+		<!--  <mapping class="com.sonah.models.ParkingLocation" />
 		<mapping class="com.sonah.models.Spot" />
 		<mapping class="com.sonah.models.Counter" />
+		<mapping class="com.sonah.models.User" />  -->
+		 <mapping class="com.sonah.models.City" /> 
 	</session-factory>
 </hibernate-configuration>

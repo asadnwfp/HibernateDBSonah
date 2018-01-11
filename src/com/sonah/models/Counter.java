@@ -34,13 +34,14 @@ public class Counter implements Serializable {
 	@Column(name = "total")
 	private int totalParking;
 	private int level;
+	private String name;
 
 	public Counter() {
 	}
 
 	public Counter(int id, ParkingLocation parkinglocation, Coordinate gps, double length, double width,
-			int orientation, int available, int total, int level) {
-		// this.parkinglocation = parkinglocation;
+			int orientation, int available, int total, int level, String name) {
+		this.parkinglocation = parkinglocation;
 		this.id = id;
 		this.gps = gps;
 		this.length = length;
@@ -49,10 +50,13 @@ public class Counter implements Serializable {
 		this.availableParking = available;
 		this.totalParking = total;
 		this.level = level;
+		this.name = name;
+		
+		this.parkinglocation.getCounters().add(this);
 	}
 
 	public Counter(int id, Coordinate gps, double length, double width, int orientation, int available, int total,
-			int level) {
+			int level, String name) {
 
 		this.id = id;
 		this.gps = gps;
@@ -62,6 +66,7 @@ public class Counter implements Serializable {
 		this.availableParking = available;
 		this.totalParking = total;
 		this.level = level;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -151,5 +156,15 @@ public class Counter implements Serializable {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 
 }

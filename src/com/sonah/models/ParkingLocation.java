@@ -16,6 +16,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -39,7 +41,9 @@ public class ParkingLocation implements Serializable {
 	private Coordinate gps;
 	@Column(nullable = false)
 	private String name;
+	@Column(name = "total")
 	private int totalParking;
+	@Column(name = "available")
 	private int availableParking;
 
 	@OneToMany(mappedBy = "parkinglocation", fetch = FetchType.EAGER)
@@ -49,6 +53,8 @@ public class ParkingLocation implements Serializable {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Counter> counters = new ArrayList<>();
 	private boolean multiLevel;
+	@ManyToMany
+	private Collection<User> user = new ArrayList<>();
 
 	public ParkingLocation() {
 	}
@@ -142,7 +148,13 @@ public class ParkingLocation implements Serializable {
 	public void setMultiLevel(boolean multiLevel) {
 		this.multiLevel = multiLevel;
 	}
-	
-	
+
+	public Collection<User> getUser() {
+		return user;
+	}
+
+	public void setUser(Collection<User> user) {
+		this.user = user;
+	}
 
 }
